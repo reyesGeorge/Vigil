@@ -36,3 +36,9 @@ pip install -r requirements.txt
 
 To run the scraper you will have to go to the googler/spiders directory and run: python3 serpGoogler.py
 Inside the file change the query word to whatever it is that you want to look up
+
+
+To start the dashboard, run the command below:
+```python
+flask run
+```
