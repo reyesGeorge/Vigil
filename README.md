@@ -16,7 +16,7 @@
 - SEO Keyword Generation
 - Content Performance Optimizer
 
-- Only for Python 3
+Only for Python 3
 
 ## Starting Out
 First, you'll want to head over to https://developer.twitter.com/en/apply-for-access and register for a developer account!
