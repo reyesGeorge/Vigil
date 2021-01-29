@@ -35,11 +35,11 @@ def get_header(app):
                                 #     href="/",
                                 #     className="tab first",
                                 # ),
-                                # dcc.Link(
-                                #     "Blog",
-                                #     href="/blog",
-                                #     className="tab",
-                                # ),
+                                html.A(
+                                    "Blog",
+                                    href="https://georgereyes.dev/",
+                                    className="tab",
+                                ),
                                 dcc.Link(
                                     "SERP Scraper",
                                     href="/serpscrape",

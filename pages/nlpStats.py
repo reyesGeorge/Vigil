@@ -32,3 +32,8 @@ def create_layout(app):
 
         ],
     )
+
+
+
+    # Loop for top named entities
+    

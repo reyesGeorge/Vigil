@@ -50,17 +50,17 @@ def display_page(pathname):
 
 # all callbacks for pages go here
 # SERP Scraper Callback
-@app.callback(
-    Output("serp_scrape", "data"),
-    [Input('serp_button', 'n_clicks')],
-    state=[State("serp_input", "value")]
-)
-def update_output2(n_clicks, serp_input):
-    # f'Input 2 输出 {input2}'
-    if n_clicks is None:
-        raise PreventUpdate
-    else:
-        pass
+# @app.callback(
+#     Output("serp_scrape", "data"),
+#     [Input('serp_button', 'n_clicks')],
+#     state=[State("serp_input", "value")]
+# )
+# def update_output2(n_clicks, serp_input):
+#     # f'Input 2 输出 {input2}'
+#     if n_clicks is None:
+#         raise PreventUpdate
+#     else:
+#         pass
         
 
 # Knowledge Graph Callback

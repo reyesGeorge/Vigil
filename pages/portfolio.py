@@ -25,7 +25,7 @@ def create_layout(app):
                     html.Div([
                         html.Br([]),
                         html.I(
-                            "The beginning of my portfolio, so far only one feature added"),
+                            "The beginning of my portfolio, so far only two features added, more on the way"),
                         html.Br([])
                     ], style={'display': 'flex', 'justifyContent': 'center'}),
                 ], className="four columns"),
