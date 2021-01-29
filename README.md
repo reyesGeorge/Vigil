@@ -3,7 +3,7 @@
 
 
 # Vigil Marketing Dashboard
-`Vigil` is a concept analysis dashboard to visualize conceptualizations
+`Vigil` is a concept analysis dashboard to aid campaign ideation
 
 
 ## Features
