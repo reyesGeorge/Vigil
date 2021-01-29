@@ -1,3 +1,7 @@
+<img width="50%" height="50%" alt="Dashboard Preview" src="https://github.com/reyesGeorge/Vigil-Marketing-Dashboard/blob/main/dash_pic.png"> 
+[Dashboard preview]
+
+
 # Vigil Marketing Dashboard
 `Vigil` is a concept analysis dashboard to visualize conceptualizations
 
