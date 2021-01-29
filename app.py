@@ -10,7 +10,7 @@ from keywordQuery import knowledge_graph, KG_API
 from pages import (
     blog,
     serpScraper,
-    portfolio,
+    home,
     knowledgeGraph,
     nlpStats,
     overview,
@@ -41,7 +41,7 @@ def display_page(pathname):
     elif pathname == "/serpscrape":
         return serpScraper.create_layout(app)
     elif pathname == "/":
-        return portfolio.create_layout(app)
+        return home.create_layout(app)
     elif pathname == "/nlpstats":
         return nlpStats.create_layout(app)
     else:
@@ -56,7 +56,6 @@ def display_page(pathname):
 #     state=[State("serp_input", "value")]
 # )
 # def update_output2(n_clicks, serp_input):
-#     # f'Input 2 输出 {input2}'
 #     if n_clicks is None:
 #         raise PreventUpdate
 #     else:
@@ -70,7 +69,6 @@ def display_page(pathname):
     state=[State("input2", "value")]
 )
 def update_output(n_clicks, input2):
-    # f'Input 2 输出 {input2}'
     if n_clicks is None:
         raise PreventUpdate
     else:

@@ -30,11 +30,11 @@ def get_header(app):
                     html.Div([
                         html.Div(
                             [
-                                # dcc.Link(
-                                #     "Portfolio",
-                                #     href="/",
-                                #     className="tab first",
-                                # ),
+                                dcc.Link(
+                                    "Portfolio",
+                                    href="/",
+                                    className="tab first",
+                                ),
                                 html.A(
                                     "Blog",
                                     href="https://georgereyes.dev/",
