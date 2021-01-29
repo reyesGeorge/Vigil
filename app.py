@@ -9,75 +9,16 @@ import time
 from keywordQuery import knowledge_graph, KG_API
 from pages import (
     blog,
-    essays,
+    serpScraper,
     portfolio,
-    login,
-    contact,
+    knowledgeGraph,
+    nlpStats,
     overview,
 )
 
 
-# def clickMethod(input2):
-#         if input2:
-#             """
-#                         This is a webscraper. It works by passing in a URL and the element identifiers into the code below.
-#                         """
-#             seoWord = input2
-#             print(seoWord)
-#             chrome_options = Options()
-#             chrome_options.add_argument("--headless")
-#             chrome_options.add_argument("--window-size=1500,1250")
-#             browser = webdriver.Chrome(executable_path="/Users/georgereyes/Downloads/chromedriver",
-#                                        options=chrome_options)
-#             query = seoWord
-#             query = query.replace(' ', '+')
-#             URL = f"https://google.com/search?q={query}"
-#             resp = browser.get(URL)
-#             time.sleep(2)  # 2, causes a delay so its not too fast
-#             data = browser.find_elements_by_class_name('LC20lb')
-#             headings = []
-#             for title in data:
-#                 if title:
-#                     insights = title.text
-#                     headings.append(insights)
-#                     while '' in headings:
-#                         headings.remove('')
-#                         # print('PRINTED:', headings)
-#                     # print('PRINTED2:', insights)
-#                 else:
-#                     pass
-
-#             time.sleep(2)
-#             browser.close()
-#             df = pd.DataFrame(headings, columns=['Headliners'])
-#             df.index += 1
-#             downloadedFrame = df.to_csv('keywordHeadlines.csv', index=True)
-#             return df.to_dict('rows')
-#         else:
-#             pass
-
-
 server = flask.Flask(__name__)
 
-
-
-# @server.route('/app')
-# def index():
-#     return 'Hello Flask app'
-
-# app = dash.Dash(
-#     __name__,
-#     server=server,
-# )
-# app = dash.Dash()
-
-
-
-# Describe the layout/ UI of the application
-# app.layout = html.Div(
-#     [dcc.Location(id="url", refresh=True), html.Div(id="page-content")]
-# )
-# app.config.suppress_callback_exceptions = True
 
 
 app = dash.Dash(
@@ -96,18 +37,33 @@ def display_page(pathname):
     if pathname == "/blog":
         return blog.create_layout(app)
     elif pathname == "/graphapi":
-        return login.create_layout(app)
-    elif pathname == "/essays":
-        return essays.create_layout(app)
+        return knowledgeGraph.create_layout(app)
+    elif pathname == "/serpscrape":
+        return serpScraper.create_layout(app)
     elif pathname == "/":
         return portfolio.create_layout(app)
-    elif pathname == "/contact":
-        return contact.create_layout(app)
+    elif pathname == "/nlpstats":
+        return nlpStats.create_layout(app)
     else:
         return overview.create_layout(app)
 
 
 # all callbacks for pages go here
+# SERP Scraper Callback
+@app.callback(
+    Output("serp_scrape", "data"),
+    [Input('serp_button', 'n_clicks')],
+    state=[State("serp_input", "value")]
+)
+def update_output2(n_clicks, serp_input):
+    # f'Input 2 输出 {input2}'
+    if n_clicks is None:
+        raise PreventUpdate
+    else:
+        pass
+        
+
+# Knowledge Graph Callback
 @app.callback(
     Output("scraped", "data"),
     [Input('button', 'n_clicks')],

@@ -4,8 +4,6 @@ import dash_core_components as dcc
 
 def Header(app):
     return html.Div([get_header(app), html.Br([])])
-    # return html.Div([get_header(app), html.Br([]), get_menu()]) how to nest components created by funcs
-
 
 def get_header(app):
     header = html.Div(
@@ -32,19 +30,19 @@ def get_header(app):
                     html.Div([
                         html.Div(
                             [
+                                # dcc.Link(
+                                #     "Portfolio",
+                                #     href="/",
+                                #     className="tab first",
+                                # ),
+                                # dcc.Link(
+                                #     "Blog",
+                                #     href="/blog",
+                                #     className="tab",
+                                # ),
                                 dcc.Link(
-                                    "Portfolio",
-                                    href="/",
-                                    className="tab first",
-                                ),
-                                dcc.Link(
-                                    "Blog",
-                                    href="/blog",
-                                    className="tab",
-                                ),
-                                dcc.Link(
-                                    "Essays",
-                                    href="/essays",
+                                    "SERP Scraper",
+                                    href="/serpscrape",
                                     className="tab",
                                 ),
                                 dcc.Link(
@@ -53,8 +51,8 @@ def get_header(app):
                                     className="tab",
                                 ),
                                 dcc.Link(
-                                    "Contact",
-                                    href="/contact",
+                                    "NLP Analysis",
+                                    href="/nlpstats",
                                     className="tab",
                                 )
                             ],
@@ -81,35 +79,3 @@ def make_dash_table(df):
             html_row.append(html.Td([row[i]]))
         table.append(html.Tr(html_row))
     return table
-# def get_menu():
-#     menu = html.Div(
-#         [
-#             dcc.Link(
-#                 "Start Investing",
-#                 href="/startinvesting",
-#                 className="tab first",
-#             ),
-#             dcc.Link(
-#                 "Raise Funding",
-#                 href="/raisefunding",
-#                 className="tab",
-#             ),
-#             dcc.Link(
-#                 "Jobs",
-#                 href="/jobs",
-#                 className="tab",
-#             ),
-#             dcc.Link(
-#                 "Login",
-#                 href="/login",
-#                 className="tab",
-#             ),
-#             dcc.Link(
-#                 "Sign Up",
-#                 href="/signup",
-#                 className="tab",
-#             )
-#         ],
-#         className="row all-tabs",
-#     )
-#     return menu

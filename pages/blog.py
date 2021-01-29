@@ -21,7 +21,7 @@ def create_layout(app):
             # Title
             html.Div([
                 html.Div([html.Br([])], className="three columns"),
-                html.H2(["Blog"], style={"text-align": "center", "padding-top": "40px"}, className="six columns"),
+                html.H2(["NLP Analysis"], style={"text-align": "center", "padding-top": "40px"}, className="six columns"),
                 html.Div([html.Br([])], className="three columns"),
             ], className="row"),
 
@@ -64,7 +64,6 @@ def create_layout(app):
             ], className="row")
 
 
-            # page 1
             # add your UI here, and callbacks go at the bottom of app.py
             # assets and .js go in assets folder
             # csv or images go in data folder
