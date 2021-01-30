@@ -7,11 +7,13 @@ from dash.exceptions import PreventUpdate
 import pandas as pd
 import time
 from keywordQuery import knowledge_graph, KG_API
+from twitterQuery import scale_bird
 from pages import (
     blog,
     serpScraper,
     home,
     knowledgeGraph,
+    twitterGraph,
     nlpStats,
     overview,
 )
@@ -40,6 +42,8 @@ def display_page(pathname):
         return knowledgeGraph.create_layout(app)
     elif pathname == "/serpscrape":
         return serpScraper.create_layout(app)
+    elif pathname == "/twitterscrape":
+        return twitterGraph.create_layout(app)
     elif pathname == "/":
         return home.create_layout(app)
     elif pathname == "/nlpstats":
@@ -75,6 +79,23 @@ def update_output(n_clicks, input2):
         searched2 =  knowledge_graph(key=KG_API, query=input2)
         searched2['#'] = list(range(1, len(searched2) + 1))
         return searched2.to_dict('rows')
+        
+        # return clickMethod(input2)
+
+# Twitter Page Callbacks
+@app.callback(
+    Output("twitter_scraped", "data"),
+    [Input('twitter_button', 'n_clicks')],
+    state=[State("twitter_input", "value")]
+)
+def update_output(n_clicks, twitter_input):
+    if n_clicks is None:
+        raise PreventUpdate
+    else:
+        tweeter =  scale_bird(twitter_input)
+        print(tweeter)
+        # searched2['#'] = list(range(1, len(searched2) + 1))
+        return tweeter.to_dict('rows')
         
         # return clickMethod(input2)
 

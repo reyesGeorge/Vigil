@@ -51,6 +51,11 @@ def get_header(app):
                                     className="tab",
                                 ),
                                 dcc.Link(
+                                    "Twitter API",
+                                    href="/twitterscrape",
+                                    className="tab",
+                                ),
+                                dcc.Link(
                                     "NLP Analysis",
                                     href="/nlpstats",
                                     className="tab",

@@ -1,8 +1,9 @@
 import dash_html_components as html
 from utils import Header, make_dash_table
 import dash_core_components as dcc
+import pathlib
+import pandas as pd
 from dash_table import DataTable
-
 
 
 def create_layout(app):
@@ -22,28 +23,36 @@ def create_layout(app):
             # TITLE
             html.Div([
                 html.Br([]),
-                html.H4("Knowledge Graph Research"),
+                html.H4("Twitter Research"),
             ], style={'display': 'flex', 'justifyContent': 'center', 'paddingTop': '12rem'}),
 
             # DESCRIPTION
             html.Div([
                 html.Br([]),
-                html.I(
-                    "Data obtained from the Google KGS API"),
+                html.P(
+                    "All data obtained utilizing the Twitter v2 API"),
                 html.Br([])
+                
+            ], style={'display': 'flex', 'justifyContent': 'center'}),
+            # DESCRIPTION 2
+            html.Div([
+                html.P(
+                    "Type in Twitter User Names only seperated by a comma: user1, user2, user3"),
+                html.Br([])
+                
             ], style={'display': 'flex', 'justifyContent': 'center'}),
 
             # INPUT
             html.Div([
                 html.Br([]),
                 html.Div([
-                    dcc.Input(id="input2", type="text", placeholder="Search", debounce=True)], className="SPACE"),
+                    dcc.Input(id="twitter_input", type="text", placeholder="Search", debounce=True)], className="SPACE"),
                 # html.Div(id="output"),
             ], style={'display': 'flex', 'justifyContent': 'center'}),
 
             # BUTTON
             html.Div([
-                html.Button('Fetch', id='button',
+                html.Button('Fetch', id='twitter_button',
                             className="scrapeButton")
             ], style={'display': 'flex', 'justifyContent': 'center'}),
 
@@ -58,14 +67,13 @@ def create_layout(app):
                         className="tableHeader padded",
                     ),
                     dcc.Loading(
-                        DataTable(id='scraped',
+                        DataTable(id='twitter_scraped',
                                   virtualization=True,
                                   #   fixed_rows={'headers': True},
                                   style_header={'background-color': 'white'},
                                   style_cell={'font-family': 'Georgia'},
                                   columns=[{'name': col, 'id': col}
-                                           for col in ['#', 'query', 'result.@type', 'result.name', 'resultScore',
-                                                       'result.detailedDescription.articleBody', 'result.url', 'result.description', 'result.detailedDescription.url']]
+                                           for col in ['description', 'id', 'name', 'username', 'created_at']]
                                   ),
                     ),
                     # html.Table(make_dash_table(df_headlines), style={"fontSize": "14px", "textIndent": "10px"}),
