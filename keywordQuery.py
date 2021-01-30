@@ -7,6 +7,7 @@ import requests
 import pandas as pd
 
 
+# This section of code was taken from the "advertools" package and adapted to work with our Dash inputs/callbacks
 
 
 def _dict_product(d):
