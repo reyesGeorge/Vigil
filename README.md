@@ -24,7 +24,7 @@ Only for Python 3
 
 ## Starting Out
 First, you'll want to head over to https://developer.twitter.com/en/apply-for-access and register for a developer account!
-After you register, grab your applications `Bearer Key` and set it in your yourCreds.py file as "bear_key"
+After you register and make a project, grab your applications `Bearer Key` and set it in your yourCreds.py file as "bear_key"
 
 Second, you'll want to head over to https://developers.google.com/knowledge-graph/libraries#python and register for a developer account to access this API!
 After you register, grab your `API_KEY` and set it in your yourCreds.py file as "api_key"
@@ -34,11 +34,14 @@ After you register, grab your `API_KEY` and set it in your yourCreds.py file as 
 pip install -r requirements.txt
 ```
 
-To run the scraper you will have to go to the googler/spiders directory and run: python3 serpGoogler.py
-Inside the file change the query word to whatever it is that you want to look up
 
 
 To start the dashboard, run the command below:
 ```python
 flask run
 ```
+To run the scraper you will have to go to the googler/spiders directory and run: 
+```python
+python3 serpGoogler.py
+```
+Inside the file change the query word to whatever it is that you want to look up
