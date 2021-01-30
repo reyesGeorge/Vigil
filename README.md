@@ -27,10 +27,10 @@ Only for Python 3
 
 ## Starting Out
 First, you'll want to head over to https://developer.twitter.com/en/apply-for-access and register for a developer account!
-After you register and make a project, grab your applications `Bearer Key` and set it in your yourCreds.py file as "bear_key"
+After you register and make a project, grab your applications `Bearer Key` and set it in your yourCreds.py file as "bearer_token"
 
 Second, you'll want to head over to https://developers.google.com/knowledge-graph/libraries#python and register for a developer account to access this API!
-After you register, grab your `API_KEY` and set it in your yourCreds.py file as "api_key"
+After you register, grab your `API_KEY` and set it in your yourCreds.py file as "KG_API"
 
 
 ```python
