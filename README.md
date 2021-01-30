@@ -11,9 +11,12 @@
 - Query data for:
     - Notable Entities Match
     - SERP Keyword Search
+    - Twitter User Query utilizing API v2
 
 ## Coming Soon
-- Twitter integration utilizing the new API v2
+- Twitter integration for User Timelines
+- Sentiment Analysis
+- Word Frequency Visualization
 
 ## Future Features
 - Image Generation From Caption
