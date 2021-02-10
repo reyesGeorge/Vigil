@@ -63,3 +63,27 @@ if __name__ == "__main__":
   process = CrawlerProcess(get_project_settings())
   process.crawl('basic2', firstSpider)
   process.start()
+
+
+
+
+#   #If we want to get html node
+# response.xpath("/html").extract()
+
+# #If we want to get body node, which is the child of html node
+# response.xpath("/html/body").extract()
+
+# #If you want to get all div descendant of this html
+# response.xpath("/html//div").extract()
+
+# #we can also drill down without having to start with /html, this expression would extract all div nodes
+# response.xpath("//div").extract()
+# From the code above, you should know how to use / and // to select the node. If you want to filter all div elements which have class=quote
+
+# response.xpath("//div[@class='quote']").extract()
+
+# # you can use this syntax to filter nodes
+# response.xpath("//div[@class='quote']/span[@class='text']").extract()
+
+# # use text() to extract all text inside nodes
+# response.xpath("//div[@class='quote']/span[@class='text']/text()").extract()

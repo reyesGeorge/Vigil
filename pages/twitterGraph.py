@@ -4,6 +4,33 @@ import dash_core_components as dcc
 import pathlib
 import pandas as pd
 from dash_table import DataTable
+import plotly.express as px
+
+import plotly.graph_objects as go
+
+import numpy as np
+
+fig = go.Figure(go.Histogram(
+    x=np.random.randint(7, size=100),
+    bingroup=1))
+
+fig.add_trace(go.Histogram(
+    x=np.random.randint(7, size=20),
+    bingroup=1))
+
+fig.update_layout(
+    barmode="overlay",
+    bargap=0.1)
+
+# fig.show()
+
+
+# df = px.data.tips()
+
+# fig = px.histogram(x=results_words['count'], y=results_words['keyword'], title="Twitter Word Frequency")
+# fig.update_xaxes(title_text='Counts')
+# fig.update_yaxes(title_text='Keywords')
+# fig.show()
 
 
 def create_layout(app):
@@ -63,7 +90,7 @@ def create_layout(app):
                 ], className="one columns"),
                 html.Div([
                     html.H5(
-                        "Headlines",
+                        "Twitter Timeline",
                         className="tableHeader padded",
                     ),
                     dcc.Loading(
@@ -73,7 +100,9 @@ def create_layout(app):
                                   style_header={'background-color': 'white'},
                                   style_cell={'font-family': 'Georgia'},
                                   columns=[{'name': col, 'id': col}
-                                           for col in ['description', 'id', 'name', 'username', 'created_at']]
+                                           for col in ['author_id', 'id', 'lang', 'text', 'geo.place_id',
+       'public_metrics.like_count', 'public_metrics.quote_count',
+       'public_metrics.reply_count', 'public_metrics.retweet_count']]
                                   ),
                     ),
                     # html.Table(make_dash_table(df_headlines), style={"fontSize": "14px", "textIndent": "10px"}),
@@ -81,6 +110,15 @@ def create_layout(app):
                 html.Div([
                     html.Br([])
                 ], className="one columns")
+            ], className="row"),
+            html.Br([]),
+            html.Br([]),
+            html.Div([
+                # html.Div([dcc.Graph(figure=fig)], className="six columns"),
+                html.Div([html.Br([])], className="two columns"),
+                html.Div([dcc.Graph(id="graph")], className="eight columns"),
+                html.Div([html.Br([])], className="two columns")
+
             ], className="row"),
             # Spacer
             html.Div([

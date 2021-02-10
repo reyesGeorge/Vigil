@@ -1,6 +1,7 @@
 import flask
 import dash
 import dash_html_components as html
+import plotly.express as px
 import dash_core_components as dcc
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
@@ -8,6 +9,7 @@ import pandas as pd
 import time
 from keywordQuery import knowledge_graph, KG_API
 from twitterQuery import scale_bird
+from twitterNLP import the_burd_is_the_word
 from pages import (
     blog,
     serpScraper,
@@ -98,6 +100,38 @@ def update_output(n_clicks, twitter_input):
         return tweeter.to_dict('rows')
         
         # return clickMethod(input2)
+
+
+
+# Twitter NLP Histogram of Tweets Callback
+@app.callback(
+    Output("graph", "figure"), 
+    [Input("timeline_vectors", "data")])
+def display_color(timeline_vectors):
+    # data = np.random.normal(mean, std, size=500)
+    # fig = px.histogram(data, nbins=30, range_x=[-10, 10])
+    new = pd.DataFrame.from_dict(timeline_vectors)
+    results_words = the_burd_is_the_word(new)
+    # df = px.data.tips()
+    fig = px.histogram(x=results_words['count'], y=results_words['keyword'], title="Twitter Word Frequency")
+    fig.update_xaxes(title_text='Counts')
+    fig.update_yaxes(title_text='Keywords')
+    return fig
+
+# Twitter Timeline Processing Callback
+@app.callback(
+    Output("timeline_vectors", "data"),
+    [Input('twitter_button', 'n_clicks')],
+    state=[State("twitter_input", "value")]
+)
+def update_output(n_clicks, twitter_input):
+    if n_clicks is None:
+        raise PreventUpdate
+    else:
+        tweeter =  scale_bird(twitter_input)
+        print(tweeter)
+        # searched2['#'] = list(range(1, len(searched2) + 1))
+        return tweeter.to_dict('rows')
 
 
 

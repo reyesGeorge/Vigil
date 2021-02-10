@@ -25,7 +25,22 @@ def create_layout(app):
                     html.Div([
                         html.Br([]),
                         html.I(
-                            "The beginning of my portfolio, so far only two features added, more on the way"),
+                            "The beginning of my portfolio, so far only three features added, more on the way"),
+                        html.Br([]),
+                        html.Br([])
+                    ], style={'display': 'flex', 'justifyContent': 'center'}),
+                ], className="four columns"),
+                html.Div([html.Br([])], className="four columns"),
+            ], className="row"),
+            # Title
+            html.Div([
+                html.Div([html.Br([])], className="four columns"),
+                html.Div([
+                    html.Div([
+                        html.Br([]),
+                        html.I(
+                            "Check out the latest NLP Visualizer under Twitter API"),
+                        html.Br([]),
                         html.Br([])
                     ], style={'display': 'flex', 'justifyContent': 'center'}),
                 ], className="four columns"),
