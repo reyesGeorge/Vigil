@@ -13,11 +13,10 @@
     - Notable Entities Match
     - SERP Keyword Search
     - Twitter User Query utilizing API v2
+    - Visualization of Noun/Entity Vectorization for Twitter User's Timelines
 
 ## Coming Soon
-- Twitter integration for User Timelines
 - Sentiment Analysis
-- Word Frequency Visualization
 
 ## Future Features
 - Image Generation From Caption
