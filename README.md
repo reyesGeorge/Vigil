@@ -5,6 +5,7 @@
 # Vigil Marketing Dashboard
 `Vigil` is a concept analysis dashboard to aid campaign ideation
 
+> If you find any of these features helpful, or want to stay tuned as I release more over time, consider leaving a star!
 
 ## Features
 - GUI made utilizing Flask and Dash
