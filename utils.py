@@ -37,7 +37,7 @@ def get_header(app):
                                 ),
                                 html.A(
                                     "Blog",
-                                    href="https://georgereyes.dev/",
+                                    href="https://george-reyes.com/",
                                     className="tab",
                                 ),
                                 dcc.Link(
